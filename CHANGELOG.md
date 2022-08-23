@@ -1,5 +1,23 @@
 # Changelog
 
+## \[0.14.0]
+
+- Implement "always on bottom" as contrary to "always on top".
+  - [a2a7b726](https://github.com/tauri-apps/tao/commit/a2a7b7262cc55e4c6defb79d5f77efce9d7e386d) Always on bottom ([#522](https://github.com/tauri-apps/tao/pull/522)) on 2022-08-22
+- Fix calling android functions when package name contained escaped underscore.
+  - [6d8cc7e3](https://github.com/tauri-apps/tao/commit/6d8cc7e3e4091462a741ee748112a3ea4aa4f12f) fix(android): unescape escaped underscore in package name ([#531](https://github.com/tauri-apps/tao/pull/531)) on 2022-08-16
+- - Add DeviceEventFilter on Windows.
+- **Breaking**: On Windows, device events are now ignored for unfocused windows by default, use `EventLoopWindowTarget::set_device_event_filter` to set the filter level.
+- [5bbd4f8f](https://github.com/tauri-apps/tao/commit/5bbd4f8f72901425432a35915d79d0bee0c96cce) Add DeviceEventFilter on Windows ([#465](https://github.com/tauri-apps/tao/pull/465)) on 2022-08-17
+- Fix system tray creation after event loop starts on macOS.
+  - [759b7db3](https://github.com/tauri-apps/tao/commit/759b7db37b8188ea38fa2919f9a0e504d4d2edca) fix(macos): retain tray to prevent segfault when event loop is running ([#539](https://github.com/tauri-apps/tao/pull/539)) on 2022-08-20
+- Add `Window::is_focused`.
+  - [7d2eeeeb](https://github.com/tauri-apps/tao/commit/7d2eeeebb4da15e9aeda9bf17e80ebdf23c95cee) feat: Window::is_focused ([#533](https://github.com/tauri-apps/tao/pull/533)) on 2022-08-17
+- On Linux, fix global shortcut are never triggered when a Lock key is ON, eg. NumLock, CapsLock.
+  - [07e3c1f5](https://github.com/tauri-apps/tao/commit/07e3c1f55d18537dc5c776b2706490676bba7cde) fix(linux/globalShorcut): extract needed mods from event state, closes [#307](https://github.com/tauri-apps/tao/pull/307), closes [#537](https://github.com/tauri-apps/tao/pull/537) ([#538](https://github.com/tauri-apps/tao/pull/538)) on 2022-08-19
+  - [871ad037](https://github.com/tauri-apps/tao/commit/871ad037b02b8ab4d650ba390664386e195c0bc7) chore: remove changefile, bug still exists on 2022-08-20
+  - [7e5556e0](https://github.com/tauri-apps/tao/commit/7e5556e0f247076e8f547fca313d957eeca46366) fix(linux/globalShortcut): grab the shortcut with extra mods, closes [#307](https://github.com/tauri-apps/tao/pull/307) ([#540](https://github.com/tauri-apps/tao/pull/540)) on 2022-08-20
+
 ## \[0.13.3]
 
 - Implement custom protocol on Android.
